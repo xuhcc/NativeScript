@@ -236,7 +236,7 @@ module.exports = env => {
                 { from: { glob: "**/*.jpg" } },
                 { from: { glob: "**/*.png" } },
                 { from: { glob: "file-system-access-tests/**/*.expected" } }, // NB: MODIFIED
-                { from: { glob: "file-name-resolver-tests/files/*" } }, // NB: MODIFIED
+                { from: { glob: "name-resolvers-tests/files/*" } }, // NB: MODIFIED
                 { from: { glob: "ui/web-view/*.html" } }, // NB: MODIFIED
             ], { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }),
             // Generate a bundle starter script and activate it in package.json
