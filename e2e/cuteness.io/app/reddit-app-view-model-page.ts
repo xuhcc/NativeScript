@@ -10,6 +10,7 @@ var aboutText = "Cuteness is a proof of concept app demonstrating the Telerik's 
 export var defaultThumbnailImageSource = imageSourceFromFile("~/res/reddit-logo.png");
 export var defaultNoThumbnailImageSource = imageSourceFromFile("~/res/no-image.png");
 
+// var redditUrl = "http://nsbuild01.telerik.com/aww.json?limit=";
 var redditUrl = "https://www.reddit.com/r/aww.json?limit=";
 var after: string;
 var ISSCROLLING = "isLoading";
