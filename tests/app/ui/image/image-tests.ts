@@ -26,7 +26,8 @@ export function test_recycling() {
 }
 
 if (isAndroid) {
-    (<any>backgroundModule).initImageCache(androidApp.startActivity, (<any>backgroundModule).CacheMode.memory); // use memory cache only.
+    const bkgModuleAndroid = <any>(<any>backgroundModule);
+    bkgModuleAndroid.initImageCache(androidApp.startActivity, bkgModuleAndroid.CacheMode.memory); // use memory cache only.
 }
 
 export const test_Image_Members = function () {

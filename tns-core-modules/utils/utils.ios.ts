@@ -11,6 +11,9 @@ function isOrientationLandscape(orientation: number) {
     return orientation === UIDeviceOrientation.LandscapeLeft || orientation === UIDeviceOrientation.LandscapeRight;
 }
 
+// ios ad not defined for IOS
+export const ad: any = undefined;
+
 export module layout {
     const MODE_SHIFT = 30;
     const MODE_MASK = 0x3 << MODE_SHIFT;
@@ -145,6 +148,8 @@ export module ios {
     }
 
 }
+
+export const openFile = ios.openFile;
 
 export function GC() {
     __collect();

@@ -161,3 +161,9 @@ function getFontWeightSuffix(fontWeight: FontWeight): string {
             throw new Error(`Invalid font weight: "${fontWeight}"`);
     }
 }
+
+export module ios {
+    export function registerFont(fontFile: string) {
+        throw new Error("Not implemented for Android");
+    }
+}

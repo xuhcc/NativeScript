@@ -622,9 +622,27 @@ export function test_PlayPromiseIsRejectedWhenAnimationIsCancelled(done) {
 
 function assertIOSNativeTransformIsCorrect(view: viewModule.View) {
     if (view.ios) {
-        var errorMessage = (<any>animation)._getTransformMismatchErrorMessage(view);
+        var errorMessage = getTransformMismatchErrorMessage(view);
         if (errorMessage) {
             TKUnit.assert(false, errorMessage);
         }
     }
+}
+
+function getTransformMismatchErrorMessage(view: viewModule.View): string {
+    // Order is important: translate, rotate, scale
+    let result: CGAffineTransform = CGAffineTransformIdentity;
+    const tx = view.translateX;
+    const ty = view.translateY;
+    result = CGAffineTransformTranslate(result, tx, ty);
+    result = CGAffineTransformRotate(result, (view.rotate || 0) * Math.PI / 180);
+    result = CGAffineTransformScale(result, view.scaleX || 1, view.scaleY || 1);
+    let viewTransform = NSStringFromCGAffineTransform(result);
+    let nativeTransform = NSStringFromCGAffineTransform(view.nativeViewProtected.transform);
+
+    if (viewTransform !== nativeTransform) {
+        return "View and Native transforms do not match. View: " + viewTransform + "; Native: " + nativeTransform;
+    }
+
+    return undefined;
 }

@@ -14,6 +14,9 @@ import { FileSystemAccess } from "../file-system/file-system-access";
 
 const MIN_URI_SHARE_RESTRICTED_APK_VERSION = 24;
 
+// ios module not defined for Android
+export const ios: any = undefined;
+
 export module layout {
     let density: number;
 
@@ -352,7 +355,7 @@ Applications cannot access internal storage of other application on Android (see
         const providerName = `${context.getPackageName()}.provider`;
         traceWrite(`fully-qualified provider name [${providerName}]`, traceCategories.Debug);
 
-        const apkURI = 	androidx.core.content.FileProvider.getUriForFile(
+        const apkURI = androidx.core.content.FileProvider.getUriForFile(
             context,
             providerName,
             new java.io.File(filePath),

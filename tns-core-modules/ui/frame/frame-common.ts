@@ -10,6 +10,7 @@ import { profile } from "../../profiling";
 
 import { frameStack, topmost as frameStackTopmost, _pushInFrameStack, _popFromFrameStack, _removeFromFrameStack } from "./frame-stack";
 import { getModuleName } from "../../utils/utils";
+
 export * from "../core/view";
 
 export enum NavigationType {

@@ -1,5 +1,5 @@
 ﻿import * as TKUnit from "../tk-unit";
-import * as fs from "tns-core-modules/file-system";
+import { knownFolders } from "tns-core-modules/file-system";
 import { FileNameResolver } from "tns-core-modules/file-system/file-name-resolver";
 import {
     androidPhonePortraitContext,
@@ -9,7 +9,7 @@ import {
     iPhonePortraitContext
 } from "./qualifier-matcher-tests";
 
-const testFilePath = "~/name-resolvers-tests/files/test".replace("~", fs.knownFolders.currentApp().path);
+const testFilePath = "~/name-resolvers-tests/files/test".replace("~", knownFolders.currentApp().path);
 
 export function test_file_resolver_with_android_phone_portrait() {
     const fileResolver = new FileNameResolver(androidPhonePortraitContext);

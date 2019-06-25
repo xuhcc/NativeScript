@@ -92,45 +92,45 @@ application.on(application.discardedErrorEvent, function (args: application.Disc
 
 // Android activity events.
 if (application.android) {
-    application.android.on(application.AndroidApplication.activityCreatedEvent, function (args: application.AndroidActivityBundleEventData) {
+    application.android.on("activityCreated", function (args: application.AndroidActivityBundleEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
     });
 
-    application.android.on(application.AndroidApplication.activityDestroyedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on("activityDestroyed", function (args: application.AndroidActivityEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
     });
 
-    application.android.on(application.AndroidApplication.activityStartedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on("activityStarted", function (args: application.AndroidActivityEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
     });
 
-    application.android.on(application.AndroidApplication.activityPausedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on("activityPaused", function (args: application.AndroidActivityEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
     });
 
-    application.android.on(application.AndroidApplication.activityResumedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on("activityResumed", function (args: application.AndroidActivityEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
     });
 
-    application.android.on(application.AndroidApplication.activityStoppedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on("activityStopped", function (args: application.AndroidActivityEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
     });
 
-    application.android.on(application.AndroidApplication.saveActivityStateEvent, function (args: application.AndroidActivityBundleEventData) {
+    application.android.on("saveActivityState", function (args: application.AndroidActivityBundleEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity + ", Bundle: " + args.bundle);
     });
 
-    application.android.on(application.AndroidApplication.activityResultEvent, function (args: application.AndroidActivityResultEventData) {
+    application.android.on("activityResult", function (args: application.AndroidActivityResultEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity +
             ", requestCode: " + args.requestCode + ", resultCode: " + args.resultCode + ", Intent: " + args.intent);
     });
 
-    application.android.on(application.AndroidApplication.activityBackPressedEvent, function (args: application.AndroidActivityBackPressedEventData) {
+    application.android.on("activityBackPressed", function (args: application.AndroidActivityBackPressedEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity);
         // Set args.cancel = true to cancel back navigation and do something custom.
     });
 
-    application.android.on(application.AndroidApplication.activityNewIntentEvent, function (args: application.AndroidActivityNewIntentEventData) {
+    application.android.on("activityNewIntent", function (args: application.AndroidActivityNewIntentEventData) {
         console.log("Event: " + args.eventName + ", Activity: " + args.activity + ", Intent: " + args.intent);
     });
 }

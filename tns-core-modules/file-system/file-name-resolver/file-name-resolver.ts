@@ -1,10 +1,10 @@
-import { PlatformContext, FileNameResolver as FileNameResolverDefinition } from "../file-name-resolver";
+import { FileNameResolver as FileNameResolverDefinition } from "./";
 import { screen, device } from "../../platform";
 import { path as fsPath, Folder, File } from "../file-system";
 import * as trace from "../../trace";
 import * as appCommonModule from "../../application/application-common";
 
-import { findMatch } from "../../module-name-resolver/qualifier-matcher/qualifier-matcher";
+import { findMatch, PlatformContext } from "../../module-name-resolver/qualifier-matcher";
 
 @Deprecated
 export class FileNameResolver implements FileNameResolverDefinition {
