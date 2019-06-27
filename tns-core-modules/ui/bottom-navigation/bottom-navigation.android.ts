@@ -43,7 +43,7 @@ function initializeNativeClasses() {
         return;
     }
 
-    class TabFragmentImplementation extends org.nativescript.widgets.FragmentBase {
+    class TabFragmentImplementation extends androidx.fragment.app.Fragment {
         private tab: BottomNavigation;
         private index: number;
 
@@ -89,7 +89,7 @@ function initializeNativeClasses() {
             this.owner.changeTab(position);
             this.owner.selectedIndex = position;
         }
-    }    
+    }
 
     TabFragment = TabFragmentImplementation;
     BottomNavigationBar = BottomNavigationBarImplementation;
@@ -197,7 +197,7 @@ export class BottomNavigation extends TabNavigationBase {
         (<any>nativeView).bottomNavigationBar = bottomNavigationBar;
 
         setElevation(nativeView, bottomNavigationBar);
-        
+
         const primaryColor = ad.resources.getPaletteColor(PRIMARY_COLOR, context);
         if (primaryColor) {
             bottomNavigationBar.setBackgroundColor(primaryColor);

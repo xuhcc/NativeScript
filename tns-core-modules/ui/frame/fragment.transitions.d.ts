@@ -3,8 +3,30 @@
  */ /** */
 
 import { NavigationTransition, BackstackEntry } from "../frame";
+// Types.
+import { Transition, AndroidTransitionType } from "../transition/transition";
 
 //@private
+/**
+ * @private
+ */
+
+export interface ExpandedTransitionListener extends androidx.transition.Transition.TransitionListener {
+    entry: ExpandedEntry;
+    transition: androidx.transition.Transition;
+}
+
+export interface ExpandedEntry extends BackstackEntry {
+    enterTransitionListener: ExpandedTransitionListener;
+    exitTransitionListener: ExpandedTransitionListener;
+    reenterTransitionListener: ExpandedTransitionListener;
+    returnTransitionListener: ExpandedTransitionListener;
+
+    transition: Transition;
+    transitionName: string;
+    frameId: number;
+}
+
 /**
  * @private
  */
@@ -23,12 +45,8 @@ export function _setAndroidFragmentTransitions(
     navigationTransition: NavigationTransition,
     currentEntry: BackstackEntry,
     newEntry: BackstackEntry,
-    fragmentTransaction: any,
-    frameId: number): void;
-/**
- * @private
- */
-export function _onFragmentCreateAnimator(entry: BackstackEntry, fragment: any, nextAnim: number, enter: boolean): any;
+    frameId: number,
+    isNestedDefaultTransition?: boolean): void;
 /**
  * @private
  */
@@ -63,4 +81,14 @@ export function _clearFragment(entry: BackstackEntry): void;
  * @private
  */
 export function _createIOSAnimatedTransitioning(navigationTransition: NavigationTransition, nativeCurve: any, operation: number, fromVC: any, toVC: any): any;
+
+/**
+ * @private
+ */
+export function addNativeTransitionListener(entry: ExpandedEntry, nativeTransition: androidx.transition.Transition): ExpandedTransitionListener;
+
+/**
+ * @private
+ */
+export function setupNewFragmentCustomTransition(navTransition: NavigationTransition, entry: ExpandedEntry, transition: Transition): void;
 //@endprivate

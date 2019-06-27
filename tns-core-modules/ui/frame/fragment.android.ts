@@ -1,10 +1,10 @@
 import { AndroidFragmentCallbacks, setFragmentCallbacks, setFragmentClass } from "./frame";
 
 @JavaProxy("com.tns.FragmentClass")
-class FragmentClass extends org.nativescript.widgets.FragmentBase {
+class FragmentClass extends androidx.fragment.app.Fragment {
     // This field is updated in the frame module upon `new` (although hacky this eases the Fragment->callbacks association a lot)
     private _callbacks: AndroidFragmentCallbacks;
-    
+
     constructor() {
         super();
         return global.__native(this);
@@ -13,10 +13,10 @@ class FragmentClass extends org.nativescript.widgets.FragmentBase {
     public onHiddenChanged(hidden: boolean): void {
         this._callbacks.onHiddenChanged(this, hidden, super.onHiddenChanged);
     }
-
-    public onCreateAnimator(transit: number, enter: boolean, nextAnim: number): android.animation.Animator {
-        return this._callbacks.onCreateAnimator(this, transit, enter, nextAnim, super.onCreateAnimator);
-    }
+    
+    // public onCreateAnimator(transit: number, enter: boolean, nextAnim: number): android.animation.Animator {
+    //     return this._callbacks.onCreateAnimator(this, transit, enter, nextAnim, super.onCreateAnimator);
+    // }
 
     public onStop(): void {
         this._callbacks.onStop(this, super.onStop);

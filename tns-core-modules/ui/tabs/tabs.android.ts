@@ -43,7 +43,7 @@ function initializeNativeClasses() {
         return;
     }
 
-    class TabFragmentImplementation extends org.nativescript.widgets.FragmentBase {
+    class TabFragmentImplementation extends androidx.fragment.app.Fragment {
         private tab: Tabs;
         private index: number;
 
@@ -222,7 +222,7 @@ function initializeNativeClasses() {
             }
         }
     }
-    
+
     PagerAdapter = FragmentPagerAdapter;
 }
 
@@ -443,7 +443,7 @@ export class Tabs extends TabsBase {
 
     public _onRootViewReset(): void {
         super._onRootViewReset();
-        
+
         // call this AFTER the super call to ensure descendants apply their rootview-reset logic first
         // i.e. in a scenario with tab frames let the frames cleanup their fragments first, and then
         // cleanup the tab fragments to avoid

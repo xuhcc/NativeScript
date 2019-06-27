@@ -46,7 +46,7 @@ function initializeNativeClasses() {
         return;
     }
 
-    class TabFragmentImplementation extends org.nativescript.widgets.FragmentBase {
+    class TabFragmentImplementation extends androidx.fragment.app.Fragment {
         private tab: TabView;
         private index: number;
 
@@ -78,6 +78,11 @@ function initializeNativeClasses() {
             const tabItem = this.tab.items[this.index];
 
             return tabItem.view.nativeViewProtected;
+        }
+
+        public onDestroy() {
+            super.onDestroy();
+            const s = "";
         }
     }
 
@@ -225,7 +230,7 @@ function initializeNativeClasses() {
             }
         }
     }
-    
+
     PagerAdapter = FragmentPagerAdapter;
 }
 
@@ -548,7 +553,7 @@ export class TabView extends TabViewBase {
 
     public _onRootViewReset(): void {
         super._onRootViewReset();
-        
+
         // call this AFTER the super call to ensure descendants apply their rootview-reset logic first
         // i.e. in a scenario with tab frames let the frames cleanup their fragments first, and then
         // cleanup the tab fragments to avoid

@@ -256,6 +256,8 @@ export class View extends ViewCommon {
     public static androidBackPressedEvent = androidBackPressedEvent;
 
     public _dialogFragment: androidx.fragment.app.DialogFragment;
+
+    private _hasParentManager: boolean;
     private _isClickable: boolean;
     private touchListenerIsSet: boolean;
     private touchListener: android.view.View.OnTouchListener;
@@ -333,6 +335,7 @@ export class View extends ViewCommon {
                 if (view._hasFragments) {
                     if (frameOrTabViewItemFound) {
                         manager = view._getChildFragmentManager();
+                        this._hasParentManager = true;
                         break;
                     }
 
@@ -456,6 +459,10 @@ export class View extends ViewCommon {
 
             this.nativeViewProtected.addOnLayoutChangeListener(this.layoutChangeListener);
         }
+    }
+
+    get hasParentManager(): boolean {
+        return this._hasParentManager;
     }
 
     get isLayoutRequired(): boolean {
@@ -763,7 +770,7 @@ export class View extends ViewCommon {
         const AnimatorSet = android.animation.AnimatorSet;
 
         const duration = nativeView.getContext().getResources().getInteger(shortAnimTime) / 2;
-        
+
         let elevation = this.androidElevation;
         if (typeof elevation === "undefined" || elevation === null) {
             elevation = this.getDefaultElevation();
@@ -1044,7 +1051,7 @@ function createNativePercentLengthProperty(options: NativePercentLengthPropertyO
     const { getter, setter, auto = 0 } = options;
     let setPixels, getPixels, setPercent;
     if (getter) {
-        View.prototype[getter] = function(this: View): PercentLength {
+        View.prototype[getter] = function (this: View): PercentLength {
             if (options) {
                 setPixels = options.setPixels;
                 getPixels = options.getPixels;
@@ -1060,7 +1067,7 @@ function createNativePercentLengthProperty(options: NativePercentLengthPropertyO
         }
     }
     if (setter) {
-        View.prototype[setter] = function(this: View, length: PercentLength) {
+        View.prototype[setter] = function (this: View, length: PercentLength) {
             if (options) {
                 setPixels = options.setPixels;
                 getPixels = options.getPixels;

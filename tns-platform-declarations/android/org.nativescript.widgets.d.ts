@@ -1,6 +1,12 @@
 ﻿declare module org {
     module nativescript {
         module widgets {
+            export class CustomTransition extends androidx.transition.Visibility {
+                constructor(animatorSet: android.animation.AnimatorSet, transitionName: string);
+                public setResetOnTransitionEnd(resetOnTransitionEnd: boolean): void;
+                public getTransitionName(): string;
+            }
+
             export module Async {
                 export class CompleteCallback {
                     constructor(implementation: ICompleteCallback);
@@ -122,7 +128,7 @@
 
             export class LinearGradientDefinition {
                 constructor(startX: number, endX: number, startY: number,
-                            endY: number, colors: number[], stops?: number[]);
+                    endY: number, colors: number[], stops?: number[]);
 
                 public getStartX(): number;
                 public getStartY(): number;
@@ -166,11 +172,11 @@
                 public verticalAlignment: VerticalAlignment;
             }
 
-            export class FragmentBase extends androidx.fragment.app.Fragment {
-                constructor();
+            // export class FragmentBase extends androidx.fragment.app.Fragment {
+            //     constructor();
 
-                public getRemovingParentFragment(): androidx.fragment.app.Fragment;
-            }
+            //     public getRemovingParentFragment(): androidx.fragment.app.Fragment;
+            // }
 
             export enum Stretch {
                 none,
@@ -410,7 +416,7 @@
                 setTabTextFontSize(fontSize: number): void;
                 getTabTextFontSize(): number;
 
-                onSelectedPositionChange(position: number): void ;
+                onSelectedPositionChange(position: number): void;
                 setSelectedPosition(position: number): void;
                 setItems(items: Array<TabItemSpec>): void;
                 updateItemAt(position: number, itemSpec: TabItemSpec): void;
