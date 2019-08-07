@@ -1,0 +1,43 @@
+# Folders
+dist
+hooks
+libs
+node_modules
+package
+platforms
+!tns-core-modules/platforms
+reports
+tags
+
+# Files
+package-lock.json
+.DS_Store
+.nsbuildinfo
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Generated files
+*.map
+*.tgz
+*.d.ts
+.baseDir.ts
+.tscache
+
+# Other
+*.js
+# https://github.com/NativeScript/nativescript-dev-webpack/issues/932
+.ctags-exclude
+
