@@ -57,10 +57,9 @@ tscommand*.tmp.txt
 !tns-core-modules/xml/xml.js
 !nativescript-core/xml/xml.js
 !tests/hooks/**/*.*
-!gruntfile.js
-!js-libs/**/*.*
-!css/**/*.*
-!css-value/**/*.*
-!fetch/**/*.*
-!build/**/*.*
+!nativescript-core/js-libs/**/*.*
+!nativescript-core/css/**/*.*
+!nativescript-core/css-value/**/*.*
+!nativescript-core/fetch/**/*.*
+!nativescript-core/build/**/*.*
 .vs/
