@@ -5,22 +5,22 @@ import {
     android,
     getRootView,
     ios
-} from "tns-core-modules/application";
+} from "@nativescript/core/application";
 import {
     isAndroid,
     device
-} from "tns-core-modules/platform";
-import { Button } from "tns-core-modules/ui/button/button";
-import { Page } from "tns-core-modules/ui/page";
+} from "@nativescript/core/platform";
+import { Button } from "@nativescript/core/ui/button/button";
+import { Page } from "@nativescript/core/ui/page";
 import {
     ShownModallyData,
     ShowModalOptions,
     View
-} from "tns-core-modules/ui/frame";
+} from "@nativescript/core/ui/frame";
 import {
     _rootModalViews
-} from "tns-core-modules/ui/core/view/view-common";
-import { DeviceType } from "tns-core-modules/ui/enums/enums";
+} from "@nativescript/core/ui/core/view/view-common";
+import { DeviceType } from "@nativescript/core/ui/enums/enums";
 
 const ROOT_CSS_CLASS = "ns-root";
 const MODAL_CSS_CLASS = "ns-modal";
